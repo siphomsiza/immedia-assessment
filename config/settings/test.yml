@@ -1,0 +1,56 @@
+#test.api_core settings
+HOST: http://0.0.0.0:3000
+DEFAULT_EMAIL_RECIPIENTS:
+  - PLEASECHANGEME@MAIL.COM
+# available options :file, :fog
+# available options :file, :fog
+UPLOAD_STORAGE_TYPE: :file
+PERFORM_ASYNC: false
+WISPER_CLASS_SUBSCRIBE_ASYNC: false
+LOG_OBSERVER_SETTING: true
+# available options : deliver_now or deliver_later
+MAIL_DELIVERY_METHOD: :deliver_now
+AWS:
+  AWS_ACCESS_KEY_ID: CHANGE ME
+  AWS_SECRET_ACCESS_KEY: CHANGE ME
+  AWS_BUCKET: immedia_test
+
+#test.core_api settings
+HOST: http://0.0.0.0:3000
+# # MADRILL EXAMPLE
+# SMTP_SETTINGS:
+#   address: smtp.mandrillapp.com
+#   port: 587
+#   user_name: ChangeMe@mail.com
+#   password: CHANGEME
+#   enable_starttls_auto: true
+
+# # GMAIL EXAMPLE
+# SMTP_SETTINGS:
+#   address: 'smtp.gmail.com'
+#   port: 587
+#   domain: 'Change Me'
+#   user_name: 'ChangeMe@gmail.com'
+#   password: 'Change me'
+#   authentication: 'plain'
+#   enable_starttls_auto: true
+
+# FOR MAILCACHER ON LOCALHOST
+SMTP_SETTINGS:
+  address: localhost
+  port: 1025
+
+EXCEPTION_SMTP_SETTINGS:
+  address: localhost
+  port: 1025
+
+SYSTEM_ADMIN_DATA:
+  email: sa@an.com
+  password: password
+  password_confirmation: password
+
+SYSTEM_ADMIN_PROFILE_DATA:
+  firstname: Super System
+  lastname: Admin User
+  gender: Male
+  birthdate: <%= 30.years.ago %>

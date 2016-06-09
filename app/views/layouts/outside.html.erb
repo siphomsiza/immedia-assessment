@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title> <%= Settings.APP_NAME %> | <%= Settings.APP_SLOGAN %></title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="<%= Settings.APP_DESCRIPTION %>" name="description" />
+	<meta content="Wiseallie @ MyTopDog Education" name="author" />
+
+
+		<!-- ================== BEGIN BASE CSS STYLE ================== -->
+		<%= stylesheet_link_tag "rails_admin/rails_admin" , media: :all%>
+	  <%= stylesheet_link_tag "application.css", media: :all %>
+
+		<!-- ================== BEGIN BASE JS ================== -->
+		<%= javascript_include_tag 'plugins/pace/pace.min' %>
+		<!-- ================== END BASE JS ================== -->
+
+		<!-- ================== BEGIN CORE JS ================== -->
+		<%= javascript_include_tag 'core' %>
+		<!--[if lt IE 9]>
+			<%= javascript_include_tag 'ie.lt9' %>
+		<![endif]-->
+		<!-- ================== END CORE JS ================== -->
+
+		<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	 	<%= javascript_include_tag 'application'%>
+		<!-- ================== END PAGE LEVEL JS ================== -->
+		<%= content_for :rails_admin_js %>
+		<script>
+			$(document).ready(function() {
+				App.init();
+				LocalFormPlugins.init();
+			});
+		</script>
+		<%= csrf_meta_tags %>
+	</head>
+
+</head>
+<body class="pace-top bg-white ">
+	<!-- begin #page-loader -->
+	<!-- <div id="page-loader" class="fade in"><span class="spinner"></span></div> -->
+	<!-- end #page-loader -->
+
+	<!-- begin #page-container -->
+	<!-- <div id="page-container" class="fade"> -->
+	<div id="page-container" class="fade">
+
+	    <!-- begin login -->
+        <div class="login animated fadeInDown  bg-black margin-bottom-0">
+            <!-- begin brand -->
+            <div class="login-header">
+                <div class="brand">
+                    <%= image_tag "immedia.png", class: 'logo-image', alt: 'immedia.png'%> <span><%= Settings.APP_NAME %></span>
+                    <small><%= Settings.APP_SLOGAN %></small>
+                </div>
+                <div class="icon">
+										<%= content_for(:logo_icon) || raw('<i class="fa fa-sign-in"></i>') %>
+                </div>
+            </div>
+            <!-- end brand -->
+            <div class="login-content ">
+								<%= render "/layouts/messages" %>
+								<%= yield %>
+            </div>
+        </div>
+				<!-- begin login -->
+				<div class="login animated fadeInDown bg-white margin-top-0 margin-bottom-0" >
+					<div class="login-content ">
+						<%= content_for :shared_login_links %>
+					</div>
+				</div>
+        <!-- end login -->
+				<!-- begin #footer -->
+				<div >
+					<!-- Footer Here -->
+					<center>
+							&copy <%= Settings.APP_NAME %> <%= Time.now.year %> <br/>
+							<a href="<%= about_us_url%>">About Us</a>
+	            &nbsp;|&nbsp;
+	            <a href="<%= privacy_policy_url%>">Privacy Policy</a>
+	            &nbsp;|&nbsp;
+	            <a href="<%= terms_of_use_url%>">Terms of Use</a>
+	            &nbsp;|&nbsp;
+	            <a href="<%= contact_us_url%>">Contact Us</a>
+	            &nbsp;|&nbsp;
+	            <a href="<%= faq_url%>">Frequently Asked Questions</a>
+				</center>
+			</div>
+
+				<!-- end #footer -->
+	</div>
+	<!-- end page container -->
+
+</body>
+</html>

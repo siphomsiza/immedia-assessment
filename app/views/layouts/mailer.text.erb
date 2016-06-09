@@ -1,0 +1,19 @@
+<% set_mail_logo_attachment %>
+
+<%= Settings.APP_NAME.to_s.titleize %>
+
+<%= yield %>
+
+Kind Regards
+<%= Settings.APP_NAME.to_s.titleize %> Team
+
+This ia a system generated email and reply is not required.
+
+Copyright <%= Settings.APP_NAME %> <%= Time.now.year %>
+
+Unsubscribe(<%= unsubscribe_url %>)
+About Us(<%= about_us_url%> )
+Privacy Policy(<%= privacy_policy_url%>)
+Terms of Use(<%= terms_of_use_url %>)
+Contact Us(<%= contact_us_url%>)
+FAQ(<%= faq_url%>)

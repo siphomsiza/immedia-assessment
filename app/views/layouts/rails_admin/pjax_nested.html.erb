@@ -1,0 +1,22 @@
+<% @nested_object ||= @object %>
+
+<script type="text/javascript">
+  $('.nav.nav-pills li.active').removeClass('active');
+  $('.nav.nav-pills li[data-model="#{@abstract_model.to_param}"]').addClass('active');
+</script>
+
+<% flash && flash.each do |key, value|  %>
+  <div class="alert alert-dismissible <%= flash_alert_class(key) %>" >
+    <button class="close" type='button' data-dismiss="alert"> &times</button>
+    <%= value %>
+  </div>
+<% end %>
+
+<div class="page-header">
+  <h4> <%= @page_name %></h4>
+</div>
+
+<div  id="<%=random_id %>" >
+  <%= render 'layouts/rails_admin/nested_menu'%>
+  <%= yield %>
+</div>

@@ -1,0 +1,28 @@
+<h1>Welcome</h1>
+<p>Click on admin to manage Accounts, Users & Ads</p>
+<h3>Active Ads(Ordered by last updated at descending)</h3>
+<% active_ads = Ad.where(status: Settings.ACTIVE_STATUSES.active).includes(:account, :ad_campaign, :ad_set).order("updated_at desc") %>
+<% if active_ads.present?%>
+<ul class="media-list ">
+  <% active_ads.each do |ad|%>
+    <li class="media well">
+      <div class="media-left">
+        <a href="<%= rails_admin.show_path(model_name: 'ad', id: ad.id) %>">
+          <img class="media-object" src="<%= root_url +  ad.picture.try(:natural).try(:url).to_s %>" alt="Ad Image" style="height:150px;width:150px;">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%=link_to  ad.name, rails_admin.show_path(model_name: 'ad', id: ad.id) %></h4>
+          <b>Account</b>: <%=  link_to ad.account, rails_admin.show_path(model_name: 'account', id: ad.account_id) %><br/>
+          <b>Campaign</b>: <%=  link_to ad.ad_campaign, rails_admin.show_path(model_name: 'ad_campaign', id: ad.ad_campaign_id)   %><br/>
+          <b>Ad Set</b>: <%=  link_to ad.ad_set, rails_admin.show_path(model_name: 'ad_set', id: ad.ad_set_id)   %><br/>
+          <b>From</b>: <%= dtf ad.ad_set.schedule_start_datetime %><br/>
+          <b>End</b>: <%= dtf ad.ad_set.schedule_end_datetime %><br/>
+          <b>url</b>: <%=  ad.url %><br/>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<% else %>
+  <div class="alert alert-warning"><b>Sorry, no active adverts<b><div>
+<% end %>

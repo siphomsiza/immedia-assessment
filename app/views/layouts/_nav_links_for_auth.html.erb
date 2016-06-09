@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <li><%= link_to 'Admin', rails_admin.dashboard_path %></li>
+  <li><%= link_to 'My Profile', edit_user_registration_path %></li>
+  <li><%= link_to raw('<span class="label label-danger">Log out</span>'), destroy_user_session_path, :method=>'delete', class: "edit_user_root_link" %></li>
+<% else %>
+  <li><%= link_to 'Sign in', new_user_session_path %></li>
+  <li><%= link_to 'Sign up', new_user_registration_path %></li>
+<% end %>

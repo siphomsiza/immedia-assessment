@@ -1,0 +1,10 @@
+   <% if  f.object.errors.size > 0 %>
+      <div class="alert alert-danger">
+        <h4>Please review the problems below:</h4>
+        <ul>
+          <% f.object.errors.full_messages.each do |e| %>
+          <li><%= e %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>

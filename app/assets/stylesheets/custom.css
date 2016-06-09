@@ -1,0 +1,56 @@
+
+.login .login-header .brand img.logo-image {
+    width: 90px;
+    height: 70px;
+    margin-top: -15px;
+    border-radius: 5px;
+}
+
+.login .login-header .brand span  {
+  color: #F8504B;
+  font-weight: bolder;
+  font-size: 35px;
+}
+
+
+.navbar-header .navbar-brand img.logo-image {
+    width: 70px;
+    height: 50px;
+    display: inline-block;
+    margin-top: -10px;
+    border-radius: 5px;
+}
+
+
+.navbar-header .navbar-brand  span  {
+  color: #F8504B;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+#main-content .nav-tabs{
+  border: 1px solid #ddd;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 20px;
+}
+
+#list table{
+    margin-top: 20px;
+}
+
+.table th.header[data-href],.table th.header[href]{
+  cursor:pointer;
+  color: #337ab7;
+}
+
+.table th.headerSortUp:after{
+  content: "\25b2";
+  padding-left: 5px;
+}
+
+.table th.header.headerSortDown:after{
+  content: "\25bc";
+  padding-left: 5px;
+}

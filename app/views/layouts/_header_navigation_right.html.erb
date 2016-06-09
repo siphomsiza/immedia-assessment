@@ -1,0 +1,37 @@
+<ul class="nav navbar-nav navbar-right">
+  <% if signed_in? %>
+      <!-- begin top nav notification li -->
+      <li class="dropdown">
+        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+          <i class="fa fa-bell-o"></i>
+        </a>
+        <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+        </ul>
+      </li>
+      <!-- end top nav notification li -->
+
+      <li class="dropdown navbar-user">
+        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+          <% if current_user.profile.picture.try(:url) %>
+            <%= image_tag current_user.profile.picture.try(:tiny).try(:url), alt: "Profile" %>
+          <% else %>
+            <i class="fa fa-user"></i>&nbsp;
+          <% end %>
+          <span class="hidden-xs"><%= current_user %></span> <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu animated fadeInLeft">
+          <li class="arrow"></li>
+          <li><a href="<%= main_app.fowarder_path fowarder: {action: 'show',model_name: 'user', id: current_user.id, section: 'current_user', subsection: 'main'}%>"><i class="fa fa-cog"></i> Edit Profile</a></li>
+          <li class="divider"></li>
+          <li><%= link_to  fa_icon("sign-out", text: 'Log out'), main_app.destroy_user_session_path, :method=>'delete' %></li>
+        </ul>
+      </li>
+  <% else %>
+  <li>
+    <a href="<%= main_app.new_user_session_path %>"><i class="fa fa-sign-in"></i> Login </i></a>
+  </li>
+  <li>
+    <a href="<%= main_app.new_user_registration_path %>"><i class="fa fa-user-plus"></i> Sign up </i></a>
+  </li>
+  <% end %>
+</ul>

@@ -1,0 +1,113 @@
+APP_NAME: Immedia
+APP_SLOGAN: 'Immedia Studio'
+APP_DESCRIPTION: 'Immedia Studio'
+DEFAULT_TIME_ZONE: Pretoria
+MAILER_SENDER: no-reply@immedia.com
+DEFAULT_DATE: 1900-01-01
+DEFAULT_CURRENCY: Rand
+DEFAULT_CURRENCY_SYMBOL: R
+DEFAULT_PER_PAGE: 25
+MAX_PER_PAGE: 1000
+DEVISE_JWT_EXPIRY: <%= 24.hours %>
+DEVISE_JWT_REMEMBER_ME_EXPIRY: <%= 2.weeks %>
+LOG_OBSERVER_SETTING: true
+LABEL_METHODS:
+  - to_label
+  - to_name
+  - display_name
+  - full_name
+  - fullname
+  - title
+  - label
+  - name
+  - long_name
+  - short_name
+  - email
+  - username
+  - login
+  - value
+
+ACTIVE_STATUSES:
+  active: 0
+  inactive: 1
+
+MEMBERSHIP_STATUSES:
+  active: 0
+  inactive: 1
+
+INVITE_STATUSES:
+  pending: 0
+  accepted: 1
+  declined: 2
+  requested_re_invite: 3
+  expired: 4
+
+INVITE_EXPIRES_IN:
+  one_day: 1
+  three_days: 3
+  one_week: 7
+  two_weeks: 14
+  one_month: 31
+  three_months: 63
+  six_months: 126
+  one_year: 365
+
+ACCESS_STATUSES:
+  active: 0
+  inactive: 1
+
+USER_SYSTEM_ROLES:
+  regular_user: 0
+  system_admin: 1
+
+ACCOUNT_STATUSES:
+  active: 0
+  inactive: 1
+  archived: 2
+
+ALARM_STATUSES:
+  active: 0
+  inactive: 1
+  deleted: 2
+
+ALARM_SCHEDULE_STATUSES:
+  active: 0
+  inactive: 1
+  deleted: 2
+
+USER_ACCOUNT_ROLES:
+  account_regular_user: 0
+  account_admin: 1
+
+USER_PROFILE_GENDERS:
+  - Male
+  - Female
+
+SYSTEM_ADMIN_DATA:
+  email: sa@an.com
+  password: password
+  password_confirmation: password
+
+SYSTEM_ADMIN_PROFILE_DATA:
+  firstname: Super System
+  lastname: Admin User
+  gender: Male
+  birthdate: <%= 30.years.ago %>
+
+AD_PLAYED_FROM:
+  alarm_trigger: 0
+  ad_view: 1
+  history: 2
+
+DEFAULT_LOGO_PATH: "/app/assets/images/core/default_images/logo.png"
+DEFAULT_PROFILE_PICTURE_PATH: "/app/assets/images/core/default_images/profile.png"
+
+DEFAULT_SUBDIVISION:
+  name: All Subdivisions
+  code: "*ALL*"
+DEFAULT_AREA:
+  name: All Areas
+  code: "*ALL*"
+DEFAULT_SUBURB:
+  name: All Suburbs
+  code: "*ALL*"

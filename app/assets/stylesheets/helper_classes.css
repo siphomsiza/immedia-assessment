@@ -1,0 +1,292 @@
+/*
+ * Font Weights
+ */
+.semi-bold {
+  font-weight: 400 !important;
+}
+.ultra-light {
+  font-weight: 300 !important;
+}
+/*
+ * Font Sizes
+ */
+.font-xs {
+  font-size: 85% !important;
+}
+.font-sm {
+  font-size: 95% !important;
+}
+.font-md {
+  font-size: 130% !important;
+}
+.font-lg {
+  font-size: 160% !important;
+}
+.font-xl {
+  font-size: 200% !important;
+}
+.font-400 {
+  font-size: 400% !important;
+}
+/*
+ * Margins
+ */
+.no-margin {
+  margin: 0px !important;
+}
+.margin-top-5 {
+  margin-top: 5px !important;
+}
+.margin-top-10 {
+  margin-top: 10px !important;
+}
+.margin-bottom-5 {
+  margin-bottom: 5px !important;
+}
+.margin-bottom-10 {
+  margin-bottom: 10px !important;
+}
+.margin-right-5 {
+  margin-right: 5px !important;
+}
+.margin-top-0 {
+  margin-top: 0px !important;
+}
+.margin-bottom-0 {
+  margin-bottom: 0px !important;
+}
+
+.margin-left-0 {
+  margin-left: 5px !important;
+}
+.margin-left-5 {
+  margin-left: 5px !important;
+}
+.margin-left-10 {
+  margin-left: 10px !important;
+}
+
+.margin-right-0 {
+  margin-right: 5px !important;
+}
+.margin-left-5 {
+  margin-right: 5px !important;
+}
+.margin-right-10 {
+  margin-right: 10px !important;
+}
+
+.margin-right-13 {
+  margin-right: 13px !important;
+}
+/*
+ * Paddings
+ */
+.no-padding {
+  padding: 0px !important;
+}
+.padding-top-5 {
+  padding-top: 5px !important;
+}
+.padding-top-10 {
+  padding-top: 10px !important;
+}
+.padding-bottom-5 {
+  padding-bottom: 5px !important;
+}
+.padding-bottom-10 {
+  padding-bottom: 10px !important;
+}
+.padding-right-5 {
+  padding-right: 5px !important;
+}
+.padding-top-0 {
+  padding-top: 0px !important;
+}
+.padding-bottom-0 {
+  padding-bottom: 0px !important;
+}
+
+.padding-left-0 {
+  padding-left: 5px !important;
+}
+.padding-left-5 {
+  padding-left: 5px !important;
+}
+.padding-left-10 {
+  padding-left: 10px !important;
+}
+
+.padding-right-0 {
+  padding-right: 5px !important;
+}
+.padding-left-5 {
+  padding-right: 5px !important;
+}
+.padding-right-10 {
+  padding-right: 10px !important;
+}
+
+.padding-right-13 {
+  padding-right: 13px !important;
+}
+/*
+ * No border
+ */
+.no-border,
+.well[class*=" color-"].no-border {
+  border-width: 0px !important;
+}
+.no-border-transparent {
+  border-color: transparent !important;
+}
+.no-border-radius {
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+/*
+ * Inlines
+ */
+.display-inline {
+  display: inline-block !important;
+}
+.display-normal {
+  display: inline !important;
+}
+/*
+ * CURSORS
+ */
+.cursor-pointer {
+  cursor: pointer;
+}
+/*
+ * Images
+ */
+.hover-transparent {
+  opacity: .5;
+}
+.hover-transparent:hover {
+  opacity: 1;
+}
+/*
+ * Forced text alignments
+ */
+.text-align-center,
+.text-center {
+  text-align: center !important;
+}
+.text-align-left,
+.text-left {
+  text-align: left !important;
+}
+.text-align-right,
+.text-right {
+  text-align: right !important;
+}
+/*
+ * HR
+ */
+hr.simple {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-style: dashed;
+}
+/*
+ * SHORT CUTS
+ */
+.pull-right {
+  float: right !Important;
+}
+.pull-left {
+  float: left !Important;
+}
+/*
+  relative
+*/
+.relative{
+  position: relative;
+}
+
+/*
+ * Air fields
+ * Description: absolute positioned objects
+ */
+.air {
+  position: absolute;
+  z-index: 5;
+}
+.air-bottom {
+  bottom: 0px;
+}
+.air-top {
+  top: 0px;
+}
+.air-top-right {
+  top: 0px;
+  right: 0px;
+}
+.air-top-left {
+  top: 0px;
+  left: 0px;
+}
+.air-bottom-left {
+  bottom: 0px;
+  left: 0px;
+}
+.air-bottom-right {
+  bottom: 0px;
+  right: 0px;
+}
+/*
+ * Display none
+ */
+.display-none {
+  display: none !important;
+}
+
+
+.color-white { color: #ffffff !important; }
+.color-silver-lighter { color: #f4f6f7 !important; }
+.color-silver { color: #f0f3f4 !important; }
+.color-silver-darker { color: #b4b6b7 !important; }
+
+.color-black { color: #2d353c !important; }
+.color-black-darker { color: #242a30 !important; }
+.color-black-lighter { color: #575d63 !important; }
+
+.color-grey { color: #b6c2c9 !important; }
+.color-grey-darker { color: #929ba1 !important; }
+.color-grey-lighter { color: #c5ced4 !important; }
+
+.color-red { color: #ff5b57 !important; }
+.color-red-darker { color: #cc4946 !important; }
+.color-red-lighter { color: #ff7c79 !important; }
+
+.color-orange { color: #f59c1a !important; }
+.color-orange-darker { color: #c47d15 !important; }
+.color-orange-lighter { color: #f7b048 !important; }
+
+.color-yellow { color: #e3fa3e !important; }
+.color-yellow-darker { color: #b6c832 !important; }
+.color-yellow-lighter { color: #e9fb65 !important; }
+
+.color-green { color: #00acac !important; }
+.color-green-darker { color: #008a8a !important; }
+.color-green-lighter { color: #33bdbd !important; }
+
+.color-blue { color: #348fe2 !important; }
+.color-blue-darker { color: #2a72b5 !important; }
+.color-blue-lighter { color: #5da5e8 !important; }
+
+.color-aqua { color: #49b6d6 !important; }
+.color-aqua-darker { color: #3a92ab !important; }
+.color-aqua-lighter { color: #6dc5de !important; }
+
+.color-purple { color: #727cb6 !important; }
+.color-purple-darker { color: #5b6392 !important; }
+.color-purple-lighter { color: #8e96c5 !important; }
+.logo-image{
+  background-color: red;
+  width: 300px;
+}

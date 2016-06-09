@@ -1,0 +1,5 @@
+= content_for :rails_admin_js do
+  -# Initialize JS simple i18n
+  :javascript
+    RailsAdmin.I18n.init('#{I18n.locale}', JSON.parse("#{j I18n.t("admin.js").to_json}"))
+= render :template => "/layouts/application"

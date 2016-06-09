@@ -1,0 +1,59 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :role => 'form', class: "margin-bottom-0"}) do |f| %>
+  <%= render "shared/form_error_messages", f: f%>
+  <%= f.hidden_field :profile_is_nested, {value: true} %>
+  <%= f.hidden_field :preference_is_nested, {value: true} %>
+ <fieldset>
+
+   <legend class="color-silver-lighter">Login info</legend>
+   <div class="form-group m-b-20">
+     <%= f.email_field :email, autofocus: true , placeholder:"Email Address", class:"form-control input-lg" , required:true %>
+   </div>
+
+   <div class="form-group m-b-20">
+     <%= f.password_field :password, autofocus: true, autocomplete: "off" , placeholder:"New password", class:"form-control input-lg", required:true  %>
+     <% if @minimum_password_length %>
+     <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+     <% end %>
+   </div>
+
+   <div class="form-group m-b-20">
+     <%= f.password_field :password_confirmation, autocomplete: "off" , placeholder:"Confirm new password", class:"form-control input-lg", required:true  %>
+   </div>
+
+   <legend class="color-silver-lighter">Profile info</legend>
+  <div class="form-group m-b-20">
+    <%= f.text_field :firstname,  placeholder:"Firstname", class:"form-control input-lg", required:true %>
+  </div>
+
+  <div class="form-group m-b-20">
+    <%= f.text_field :lastname,  placeholder:"Lastname", class:"form-control input-lg" , required:true %>
+  </div>
+
+  <div class="form-group input-group m-b-20 date">
+      <%= f.text_field :birthdate,  placeholder:"Birthdate, format: dd/mm/yyyy", class:"form-control input-lg datepicker-default" %>
+      <span class="input-group-addon">
+        <span class="fa fa-calendar"></span>
+      </span>
+  </div>
+
+  <div class="form-group m-b-20">
+    <%= f.select :gender, Settings.USER_PROFILE_GENDERS, { include_blank: true, prompt: "--Select gender--"} , { 'data-placeholder' => "--Select gender--", class:"form-control input-lg default-select2" } %>
+  </div>
+
+
+  <legend class="color-silver-lighter">Preferences</legend>
+
+  <div class="checkbox m-b-20">
+      <label>
+          <%= f.check_box :receive_newsletter %> <b  class="color-silver-lighter">Receive newsletter?</b>
+      </label>
+  </div>
+
+</fieldset>
+
+  <div class="login-buttons">
+    <%= html_submit(content=fa_icon('user-plus', :text => "Sign up"), extra={class: "btn btn-success btn-block btn-lg"}) %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

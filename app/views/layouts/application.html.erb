@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+  <title> <%= Settings.APP_NAME %> | <%= Settings.APP_SLOGAN %></title>
+
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="<%= Settings.APP_DESCRIPTION %>" name="description" />
+	<meta content="Wiseallie @ MyTopDog Education" name="author" />
+
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<%= stylesheet_link_tag "rails_admin/rails_admin" , media: :all%>
+  <%= stylesheet_link_tag "application.css", media: :all %>
+
+	<!-- ================== BEGIN BASE JS ================== -->
+	<%= javascript_include_tag 'plugins/pace/pace.min' %>
+	<!-- ================== END BASE JS ================== -->
+
+	<!-- ================== BEGIN CORE JS ================== -->
+	<%= javascript_include_tag 'core' %>
+	<!--[if lt IE 9]>
+		<%= javascript_include_tag 'ie.lt9' %>
+	<![endif]-->
+	<!-- ================== END CORE JS ================== -->
+
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+ 	<%= javascript_include_tag 'application'%>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<%= content_for :rails_admin_js %>
+	<script>
+		$(document).ready(function() {
+			App.init();
+			// LocalFormPlugins.init();
+		});
+	</script>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<!-- <div id="page-loader" class="fade in"><span class="spinner"></span></div> -->
+	<!-- end #page-loader -->
+
+	<!-- begin #page-container -->
+	<!-- <div id="page-container" class="page-container fade  page-sidebar-fixed page-header-fixed page-with-wide-sidebar"> -->
+	<div id="page-container" class="page-container  page-sidebar-fixed page-header-fixed page-with-wide-sidebar">
+
+		<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top">
+			<!-- begin container-fluid -->
+			<div class="container-fluid">
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+					<a href="/" class="navbar-brand">
+            <%= image_tag "immedia.png", class: 'logo-image', alt: 'immedia.png'%> <span><%= Settings.APP_NAME %></span>
+          </a>
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<button type="button" class="navbar-toggle p-0 m-r-5" data-toggle="collapse" data-target="#top-navbar">
+						<span class="fa-stack fa-lg text-inverse">
+							<i class="fa fa-square-o fa-stack-2x m-t-2"></i>
+							<i class="fa fa-cog fa-stack-1x"></i>
+						</span>
+					</button>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
+ 			 <% if signed_in? %>
+				<!-- begin navbar-collapse -->
+				<div class="collapse navbar-collapse pull-left" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-diamond fa-fw"></i>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- end navbar-collapse -->
+				<% end %>
+
+				<!-- begin header navigation right -->
+					<%= render "/layouts/header_navigation_right"%>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end #header -->
+
+		<!-- begin #sidebar -->
+		<%= render "/layouts/sidebar"%>
+		<!-- end #sidebar -->
+
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin breadcrumb -->
+			<ol class="breadcrumb pull-right">
+				<% if @system_config || !(content_for(:main_breadcrumb)) %>
+				<li><a href="/">Home</a></li>
+				<li><a href=""><%= controller_name.to_s.humanize%></a></li>
+				<li class="active"><%= action_name.to_s.humanize%></li>
+				<% else %>
+					<%= content_for :main_breadcrumb %>
+				<% end %>
+			</ol>
+			<!-- end breadcrumb -->
+			<!-- begin page-header -->
+			<h1 class="page-header"><%= content_for(:title) || @page_name || @page_title || @title || action_name.to_s.humanize %> <small><%= content_for(:subtitle) || @page_sub_title || @subtitle  %></small></h1>
+			<!-- end page-header -->
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+							</div>
+							<h4 class="panel-title"><%= content_for(:title) || @page_title || @title || action_name.to_s.humanize %></h4>
+						</div>
+						<div class="panel-body" id="main-content" data-pjax-container='true'>
+							<% if controller_name == "main"%>
+									<%= render template: 'layouts/rails_admin/pjax' %>
+							<% else %>
+								<%= render 'layouts/messages'%>
+								<%= yield %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+
+		<!-- begin #footer -->
+		<div id="footer" class="footer">
+          <span class="margin-left-10 padding-left-10">&copy <%= Settings.APP_NAME %> <%= Time.now.year %></span>
+          <span class="pull-right">
+            <a href="<%= main_app.about_us_url%>">About Us</a>
+            &nbsp;|&nbsp;
+            <a href="<%= main_app.privacy_policy_url%>">Privacy Policy</a>
+            &nbsp;|&nbsp;
+            <a href="<%= main_app.terms_of_use_url%>">Terms of Use</a>
+            &nbsp;|&nbsp;
+            <a href="<%= main_app.contact_us_url%>">Contact Us</a>
+            &nbsp;|&nbsp;
+            <a href="<%= main_app.faq_url%>">Frequently Asked Questions</a>
+          </span>
+		</div>
+		<!-- end #footer -->
+
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+
+
+</body>
+</html>

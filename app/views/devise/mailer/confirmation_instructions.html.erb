@@ -1,0 +1,31 @@
+<!-- begin row -->
+<table class="row">
+  <tr>
+    <!-- begin wrapper -->
+    <td class="wrapper">
+      <table class="twelve columns">
+        <tr>
+          <td class="last">
+            <h4>Welcome <%= @email %>!</h4>
+            <p class="m-b-5">Your account has been registered on <%= link_to Settings.APP_NAME, root_url %></p>
+
+            <p class="m-b-5">You can confirm your account email through the link below:</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="panel">
+            <%= link_to confirmation_url(@resource, confirmation_token: @token), confirmation_url(@resource, confirmation_token: @token) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="m-t-15 last">If clicking the URL above does not work, copy and paste the URL into a browser window.</p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+    <!-- end wrapper -->
+  </tr>
+</table>
+<!-- end row -->
