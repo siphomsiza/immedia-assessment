@@ -222,4 +222,6 @@ group :test do
   gem 'launchy'
   # The next generation developer focused tool for automated testing of webapps (https://github.com/seleniumhq/selenium)
   gem 'selenium-webdriver'
+  gem 'rspec'
+  gem 'test-unit'
 end
