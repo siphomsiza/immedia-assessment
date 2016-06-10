@@ -63,7 +63,7 @@ gem  'pry-remote'
 # Open a pry session on any unhandled exceptions (https://github.com/ConradIrwin/pry-rescue)
 gem  'pry-rescue'
 # Pretty print Ruby objects with proper indentation and colors (http://github.com/michaeldv/awesome_print)
-gem  "awesome_print"
+#gem  "awesome_print"
 # Ruby 2.0 fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
 gem  'byebug'
 
@@ -176,21 +176,12 @@ gem 'paper_trail', '>= 4.0.0'
 
 
 group :development do
-  # Catch all mails on dev & test
-  # Runs an SMTP server, catches and displays email in a web interface. (http://mailcatcher.me)
-  gem 'mailcatcher'
 
   # A debugging tool for your Ruby on Rails applications. (https://github.com/rails/web-console)
   gem 'web-console', '~> 2.0'
   # gem 'spring'
   # Better error page for Rails and other Rack apps (https://github.com/charliesome/better_errors)
   gem 'better_errors'
-  # gem 'capistrano', '~> 3.0.1'
-  # gem 'capistrano-bundler'
-  # gem 'capistrano-rails', '~> 1.1.0'
-  # gem 'capistrano-rails-console'
-  # gem 'capistrano-rvm', '~> 0.1.1'
-  # gem 'foreman'
   # Turns off Rails asset pipeline log. (http://github.com/evrone/quiet_assets)
   gem 'quiet_assets'
   # Rails generator creates application layout files for Bootstrap and other frameworks. (http://github.com/RailsApps/rails_layout/)
@@ -202,26 +193,21 @@ group :development do
 end
 
 group :development, :test do
+  # Catch all mails on dev & test
+  # Runs an SMTP server, catches and displays email in a web interface. (http://mailcatcher.me)
+  gem 'mailcatcher'
+
   # factory_girl_rails provides integration between factory_girl and rails 3 (http://github.com/thoughtbot/factory_girl_rails)
   gem 'factory_girl_rails'
   # Easily generate fake data (https://github.com/stympy/faker)
   gem 'faker'
   # RSpec for Rails (http://github.com/rspec/rspec-rails)
-  gem 'rspec-rails'
-  # Automatic Ruby code style checking tool. (http://github.com/bbatsov/rubocop)
-  gem 'rubocop'
-  # Capistrano - Welcome to easy deployment with Ruby over SSH (http://capistranorb.com/)
+  gem 'rspec-rails', '~> 3.0.0.beta1'
+  gem 'thin'
 end
 
 group :test do
-  # Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/jnicklas/capybara)
-  gem 'capybara'
-  # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)
-  gem 'database_cleaner'
-  # Launchy is helper class for launching cross-platform applications in a fire and forget manner. (http://github.com/copiousfreetime/launchy)
-  gem 'launchy'
-  # The next generation developer focused tool for automated testing of webapps (https://github.com/seleniumhq/selenium)
-  gem 'selenium-webdriver'
   gem 'rspec'
+  gem 'database_cleaner'
   gem 'test-unit'
 end

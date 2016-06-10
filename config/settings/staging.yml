@@ -1,7 +1,7 @@
 #staging settings
 HOST: http://162.243.52.126
 DEFAULT_EMAIL_RECIPIENTS:
-  - alfredm@mytopdog.com
+  - siphom@mytopdog.com
 # available options :file, :fog
 UPLOAD_STORAGE_TYPE: :file
 PERFORM_ASYNC: false

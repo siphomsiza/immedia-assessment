@@ -37,5 +37,11 @@ module ImmediaAdmin
     config.autoload_paths += Dir[Rails.root.to_s + '/app/policies/*' ]
     config.autoload_paths += Dir[Rails.root.to_s + '/app/validators/*' ]
 
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    I18n.enforce_available_locales = false
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| "<div class='form-group has-error'>#{html_tag}</div>".html_safe }
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end
