@@ -1,5 +1,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+require "omniauth-foursquare"
+
 Rails.application.config.to_prepare do
   Devise::Mailer.layout "mailer" # simple.haml or simple.erb
   Devise::Mailer.helper "application"
@@ -267,5 +269,7 @@ Devise.setup do |config|
   #
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
-  # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth_path_prefix = '/omniauth_callbacks'
+  config.omniauth :foursquare, Settings.app_id, Settings.app_secret
+  # config.omniauth :instagram, Settings.instagram_client_id, Settings.instagram_access_token
 end

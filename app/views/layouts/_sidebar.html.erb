@@ -16,14 +16,16 @@
             <li class="<%= 'active' if  @section == 'current_user' &&  params[:model_name] == 'user' %>"><a href="<%= main_app.fowarder_path fowarder: {action: 'show',model_name: 'user', id: current_user.id, section: 'current_user', subsection: 'main'}%>">Profile</a></li>
           </ul>
         </li>
-        <li class="has-sub  <%= 'active' if @section == 'locations'%>">
+        <li class="has-sub  <%= 'active' if @section == 'instagram_items'%>">
           <a href="javascript:;">
             <b class="caret pull-right"></b>
             <i class="fa fa-location-arrow"></i>
-            <span>Locations</span>
+            <span>Instagram Items</span>
           </a>
           <ul class="sub-menu">
-            <li class="<%= 'active' if  @section == 'locations' &&  params[:model_name] == 'location' %>"><a href="<%= main_app.fowarder_path fowarder: {action: 'index',model_name: 'location', section: 'locations', subsection: 'main'}%>">Locations</a></li>
+            <li class="<%= 'active' if  @section == 'instagram_items' &&  params[:model_name] == 'instagram_item' %>"><a href="<%= main_app.fowarder_path fowarder: {action: 'index',model_name: 'instagram_item', section: 'instagram_items', subsection: 'main'}%>">Instagram Items</a></li>
+            <li class="<%= 'active' if  @section == 'instagram_items' &&  params[:model_name] == 'instagram_item' %>"><a href="<%= main_app.foursquare_locations_request_location_url(section: 'instagram_items', subsection: 'main')%>">Create Instagram Item</a></li>
+
           </ul>
         </li>
       <% end %>

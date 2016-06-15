@@ -54,3 +54,9 @@
   content: "\25bc";
   padding-left: 5px;
 }
+.omniauth_providers{
+  margin-left: 90px;
+}
+.fields fieldset{
+  padding-left: 5px;
+}

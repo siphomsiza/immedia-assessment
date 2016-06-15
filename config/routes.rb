@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'foursquare_locations/request_location'
+  get 'foursquare_locations/fetch_items_and_save'
+  put 'foursquare_locations/fetch_items_and_save'
+
+
   get 'system/unsubscribe', as: 'unsubscribe'
   get 'system/about_us', as: 'about_us'
   get 'system/privacy_policy', as: 'privacy_policy'
@@ -12,7 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, class_name: "User", path: "authentication"
+  #devise_for :users, class_name: "User", path: "authentication"
+  devise_for :users, class_name: "User", :controllers => { omniauth_callbacks: 'omniauth_callbacks'}
+
   devise_scope :user do
     get "/authentication", to: 'devise/sessions#new'
   end

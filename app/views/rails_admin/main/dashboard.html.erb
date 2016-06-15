@@ -4,13 +4,15 @@
     <!-- begin col-3 -->
     <div class="col-md-3 col-sm-6">
       <div class="widget widget-stats bg-green">
-        <div class="stats-icon stats-icon-lg"><i class="fa fa-globe fa-fw"></i></div>
-        <div class="stats-title">TODAY'S VISITS</div>
-        <div class="stats-number">7,842,900</div>
+        <div class="stats-icon stats-icon-lg"><i class="fa fa-location-arrow"></i></div>
+        <div class="stats-title">MY INSTAGRAM ITEMS</div>
+        <div class="stats-number"><%= current_user.instagram_items.count%></div>
         <div class="stats-progress progress">
           <div class="progress-bar" style="width: 70.1%;"></div>
         </div>
-        <div class="stats-desc">Better than last week (70.1%)</div>
+        <div class="stats-link">
+          <a href="javascript:;">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+        </div>
       </div>
     </div>
     <!-- end col-3 -->

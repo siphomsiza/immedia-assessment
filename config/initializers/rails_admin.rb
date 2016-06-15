@@ -32,7 +32,9 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do
+      only [UserProfile,User]
+    end
     export
     bulk_delete
     show
@@ -46,7 +48,11 @@ RailsAdmin.config do |config|
 
     ## has many Nested
     index_nested # mandatory
-    new_nested
+    #new_nested
+    new_nested do
+      only [UserProfile,User]
+    end
+
     export_nested
     bulk_delete_nested
     show_nested
@@ -60,7 +66,7 @@ RailsAdmin.config do |config|
   end
 
   config.included_models = [
-    "User", "UserProfile","Location"
+    "User", "UserProfile","InstagramItem"
   ]
 
   config.compact_show_view = false

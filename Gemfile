@@ -77,9 +77,13 @@ gem "devise-encryptable"
 # Devise Async provides an easy way to configure Devise to send its emails asynchronously using your preferred queuing backend. It supports Backburner, Resque, Sidekiq, Delayed::Job, QueueClassic, Que, Sucker Punch and Torquebox. (https://github.com/mhfs/devise-async/)
 gem "devise-async"
 
+
 # getting resources from oauth2 servers
 # A generalized Rack framework for multiple-provider authentication. (http://github.com/intridea/omniauth)
 gem 'omniauth'
+gem 'omniauth-foursquare'
+gem 'omniauth-instagram'
+
 
 # providing oauth2 server functionality
 # OAuth 2 provider for Rails and Grape (https://github.com/doorkeeper-gem/doorkeeper)
@@ -173,7 +177,9 @@ gem 'fog'
 # AUDITING
 # Track changes to your models' data. Good for auditing or versioning. (https://github.com/airblade/paper_trail)
 gem 'paper_trail', '>= 4.0.0'
-
+gem 'foursquare2'
+gem 'instagram',  :git => 'git://github.com/Instagram/instagram-ruby-gem.git'
+gem "figaro"
 
 group :development do
 

@@ -39,7 +39,7 @@ class UserProfile < ActiveRecord::Base
   uniqueness: true,
   allow_nil: true
 
-  validates :firstname,:lastname,:gender,:birthdate,
+  validates :firstname,:lastname,:gender,
   presence: true
 
 

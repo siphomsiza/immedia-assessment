@@ -23,6 +23,8 @@
 #  system_admin           :boolean          default(FALSE)
 #  active                 :boolean          default(TRUE)
 #  receive_newsletter     :boolean          default(FALSE)
+#  provider               :string
+#  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -33,6 +35,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
+require "open-uri"
 
 class User < ActiveRecord::Base
   extend Forwardable
@@ -46,7 +49,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   #  and :omniauthable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable,
+  :recoverable, :rememberable, :trackable,:omniauthable,
   :validatable,
   :confirmable,
   :lockable,
@@ -57,6 +60,11 @@ class User < ActiveRecord::Base
   foreign_key: :user_id,
   dependent: :destroy
   accepts_nested_attributes_for :profile, allow_destroy: false,  update_only: true
+
+  has_many :instagram_items,
+  class_name: "InstagramItem",
+  foreign_key: :user_id,
+  dependent: :destroy
 
 
   # get all the user profile details here
@@ -103,5 +111,23 @@ class User < ActiveRecord::Base
     profile_is_nested = true
     return true
   end
+
+  def self.from_omniauth(auth)
+    user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.user_profile.is_nested = true
+      user.skip_confirmation!
+      user.try(:skip_confirmation!)
+      user.profile.firstname =  auth.info.name.split().try(:first)
+      user.profile.lastname =  auth.info.name.split().try(:last)
+      user.profile.gender =  auth.extra.raw_info.gender
+      # user.profile.picture = open([auth.extra.raw_info.photo.prefix,auth.extra.raw_info.photo.suffix].join("128x128"))
+    end
+    return user
+  end
+
 
 end

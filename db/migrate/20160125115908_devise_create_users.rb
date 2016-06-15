@@ -33,6 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :system_admin, default: false
       t.boolean :active, default: true
       t.boolean :receive_newsletter, default: false
+      t.string  :provider
+      t.string  :uid
       t.timestamps null: false
     end
 

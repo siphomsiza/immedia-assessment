@@ -7,7 +7,6 @@ class AddDefaultAdminUser < SeedMigration::Migration
     object.try(:skip_confirmation!)
     object.user_profile.attributes = Settings.SYSTEM_ADMIN_PROFILE_DATA.to_hash
     object.user_profile.is_nested = true
-    object.user_preference.is_nested = true
     object.save!
     puts ['id', 'firstname', 'lastname', 'email', 'active', 'password'].map{|x| {x => object.send(x)}}
     puts "Is System Admin? => #{object.system_admin?}"

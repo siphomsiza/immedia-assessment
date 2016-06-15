@@ -11,21 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609065249) do
+ActiveRecord::Schema.define(version: 20160614160948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "citext"
   enable_extension "uuid-ossp"
 
-  create_table "locations", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "image_url"
-    t.uuid     "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "instagram_items", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "instagram_id",                   null: false
+    t.datetime "created_time",                   null: false
+    t.string   "username",                       null: false
+    t.uuid     "user_id",                        null: false
+    t.string   "link",                           null: false
+    t.string   "path",                           null: false
+    t.float    "latitude",                       null: false
+    t.float    "longitude",                      null: false
+    t.float    "distance_from_center_in_meters", null: false
+    t.string   "instagram_type",                 null: false
+    t.string   "filter"
+    t.text     "full_data",                      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
+
+  add_index "instagram_items", ["created_time"], name: "index_instagram_items_on_created_time", using: :btree
+  add_index "instagram_items", ["distance_from_center_in_meters", "created_time"], name: "index_on_distance_and_created", using: :btree
+  add_index "instagram_items", ["instagram_id"], name: "index_instagram_items_on_instagram_id", unique: true, using: :btree
+  add_index "instagram_items", ["latitude", "longitude"], name: "index_instagram_items_on_latitude_and_longitude", using: :btree
+  add_index "instagram_items", ["path"], name: "index_instagram_items_on_path", using: :btree
 
   create_table "seed_migration_data_migrations", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "version"
@@ -69,6 +83,8 @@ ActiveRecord::Schema.define(version: 20160609065249) do
     t.boolean  "system_admin",           default: false
     t.boolean  "active",                 default: true
     t.boolean  "receive_newsletter",     default: false
+    t.string   "provider"
+    t.string   "uid"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
@@ -107,5 +123,6 @@ ActiveRecord::Schema.define(version: 20160609065249) do
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   add_index "versions", ["transaction_id"], name: "index_versions_on_transaction_id", using: :btree
 
+  add_foreign_key "instagram_items", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "user_profiles", "users", on_update: :cascade, on_delete: :cascade
 end
