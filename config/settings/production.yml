@@ -43,5 +43,8 @@ SYSTEM_ADMIN_PROFILE_DATA:
   lastname: Admin User
   gender: Male
   birthdate: <%= 30.years.ago %>
+app_id: ULRETEXRBDVZOEPKSO2PM52OHKZUPMDQUPJDV1NS02I4JONA
+app_secret: WHRTH1LZUOGJ1Q1ULTKOP1ST3A45QFAOLRDMFVN4AYSTRUWR
+
 instagram_client_id: b0209cce731b419787f6b12cad7baad3
 instagram_access_token: 3412951647.1677ed0.2f37f548edea4b1087f32f94108da503
