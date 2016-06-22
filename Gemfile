@@ -180,7 +180,7 @@ gem 'paper_trail', '>= 4.0.0'
 gem 'foursquare2'
 gem 'instagram',  :git => 'git://github.com/Instagram/instagram-ruby-gem.git'
 gem "figaro"
-
+gem 'heroku'
 group :development do
 
   # A debugging tool for your Ruby on Rails applications. (https://github.com/rails/web-console)
