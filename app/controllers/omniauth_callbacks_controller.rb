@@ -18,9 +18,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def instagram
-    @user = User.from_omniauth(request.env["omniauth.auth"])
-    binding.pry
-    raise request.env["omniauth.auth"].inspect
+    @user = User.from_omniauth_instagram(request.env["omniauth.auth"])
     @user.skip_confirmation! if @user.present?
     unless @user.save
       user = User.find_by(email: @user.email)

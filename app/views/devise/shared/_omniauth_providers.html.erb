@@ -1,5 +1,11 @@
 <%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to raw("<i class='fa fa-sign-in'></i> Sign in with #{OmniAuth::Utils.camelize(provider)}"), omniauth_authorize_path(resource_name, provider),class: "btn btn-success btn-block btn-lg",style: "margin-left: 5px;",width: "100px;" %><br />
-  <% end -%>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <div class="login-buttons pull-left">
+        <div class="row">
+          <div class="col-md-4 pull-left" style="padding-left: 20px;" >
+            <%= link_to raw("<i class='fa fa-sign-in'></i> Sign in with #{OmniAuth::Utils.camelize(provider)}"), omniauth_authorize_path(resource_name, provider),class: "btn btn-success btn-default"%><br />
+          </div>
+        </div>
+      </div>
+    <% end -%>
 <% end -%>

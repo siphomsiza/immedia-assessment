@@ -271,5 +271,5 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   config.omniauth_path_prefix = '/omniauth_callbacks'
   config.omniauth :foursquare, Settings.app_id, Settings.app_secret
-  # config.omniauth :instagram, Settings.instagram_client_id, Settings.instagram_access_token
+  config.omniauth :instagram, Settings.instagram_client_id, Settings.instagram_access_token_1 ,setup: true
 end

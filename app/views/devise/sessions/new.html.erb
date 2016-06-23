@@ -16,12 +16,9 @@
 <% end -%>
 
   <div class="login-buttons pull-left">
-    <%= html_submit(content=fa_icon('sign-in', :text => "Login"), extra={class: "btn btn-success btn-block btn-lg",with: "100px;"}) %>
+    <%= html_submit(content=fa_icon('sign-in', :text => "Login"), extra={class: "btn btn-success btn-block btn-default"}) %>
   </div>
-  <div class="omniauth_providers">
-    <%= render "devise/shared/omniauth_providers" %>
-  </div>
-
+  <%= render "devise/shared/omniauth_providers" %>
 <% end %>
 
 <%= render "devise/shared/links" %>

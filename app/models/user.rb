@@ -124,10 +124,23 @@ class User < ActiveRecord::Base
       user.profile.firstname =  auth.info.name.split().try(:first)
       user.profile.lastname =  auth.info.name.split().try(:last)
       user.profile.gender =  auth.extra.raw_info.gender
-      # user.profile.picture = open([auth.extra.raw_info.photo.prefix,auth.extra.raw_info.photo.suffix].join("128x128"))
     end
     return user
   end
 
-
+  def self.from_omniauth_instagram(auth)
+    user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.nickname + "@example.com"
+      user.password = Devise.friendly_token[0,20]
+      user.user_profile.is_nested = true
+      user.skip_confirmation!
+      user.try(:skip_confirmation!)
+      user.profile.firstname =  auth.info.name.split().try(:first)
+      user.profile.lastname =  auth.info.name.split().try(:last)
+      user.profile.gender =  "Male"
+    end
+    return user
+  end
 end
